@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="de">
 
 
@@ -12,7 +12,8 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/draw_svg.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <script src="https://kit.fontawesome.com/3eaa4b2c6f.js" crossorigin="anonymous"></script>
 
@@ -28,10 +29,10 @@
         <h1>Gabriel</h1> <!-- TODO: Hier muss responsive content rein mit ejs oder handlebars ect. -->
     </div>
     <ul>
-        <li onclick="location.href='index.html';" class="hover"><i class="fa-solid fa-address-card"></i> <span>About Me</span></li>
-        <li onclick="location.href='subside/3d.html';"><i class="fa-solid fa-cube"></i> <span>3D Art</span></li>
-        <li onclick="location.href='subside/draw.html';"><i class="fa-solid fa-pen"></i> <span>Drawing</span></li>
-        <li onclick="location.href='subside/fav.html';"><i class="fa-solid fa-heart"></i> <span>Favorites</span></li>
+        <li onclick="location.href='../index.html';"><i class="fa-solid fa-address-card"></i> <span>About Me</span></li>
+        <li onclick="location.href='3d.html';"><i class="fa-solid fa-cube"></i> <span>3D Art</span></li>
+        <li onclick="location.href='draw.html';" class="hover"><i class="fa-solid fa-pen"></i> <span>Drawing</span></li>
+        <li onclick="location.href='fav.html';"><i class="fa-solid fa-heart"></i> <span>Favorites</span></li>
 
     </ul>
 </div>
@@ -42,125 +43,45 @@
         <div class="nav">
             <div class="account">
                 <div class="img-case">
-                    <img src="assets/img/user.png" alt="">
+                    <img src="../assets/img/user.png" alt="">
                 </div>
-                <a href="#" class="button">Logout</a>
+                <a href="../../nodelogin/public/login.html" class="button">Logout</a>
             </div>
         </div>
     </div>
 
     <div class="content">
-
-        <div class="cards">
+        <div class="cards ">
             <div class="card">
-                <div class="box">
-                    <h1>201.480</h1>
-                    <h3>Lived Hours</h3>
+                <div class="embed">
+                    <h2>SVG Animation</h2>
+                    <svg class="drawsvg" width="311" height="182" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <title>Layer 1</title>
+                            <path transform="rotate(-0.0731775 155.298 90.7619)" id="svg_2"
+                                  d="m7.79713,17.76202c0,-5.43379 4.56621,-10 10,-10l275,0c5.43379,0 10,4.56621 10,10l0,146c0,5.43379 -4.56621,10 -10,10l-275,0c-5.43379,0 -10,-4.56621 -10,-10l0,-146z"
+                                  opacity="undefined" stroke-width="15" stroke="#000" fill="none"/>
+                            <path id="svg_24"
+                                  d="m90.34767,82.86733c-14.10283,0 -25.52613,-11.54106 -25.52613,-25.78929c0,-14.24822 11.4233,-25.78929 25.52613,-25.78929c14.10283,0 25.52613,11.54106 25.52613,25.78929c0,14.24822 -11.4233,25.78929 -25.52613,25.78929z"
+                                  transform="rotate(-0.0731775 90.3477 57.078)" opacity="undefined" stroke-width="10" stroke="#000"
+                                  fill="none"/>
+                            <path transform="rotate(-0.0731775 224.557 57.0781)" id="svg_25"
+                                  d="m224.55719,82.86734c-14.10283,0 -25.52613,-11.54106 -25.52613,-25.78929c0,-14.24822 11.4233,-25.78929 25.52613,-25.78929c14.10283,0 25.52613,11.54106 25.52613,25.78929c0,14.24822 -11.4233,25.78929 -25.52613,25.78929z"
+                                  opacity="undefined" stroke-width="10" stroke="#000" fill="none"/>
+                            <path id="svg_26"
+                                  d="m90.3477,67.86746c-5.8156,0 -10.52624,-4.8284 -10.52624,-10.7894c0,-5.96099 4.71064,-10.7894 10.52624,-10.7894c5.8156,0 10.52624,4.8284 10.52624,10.7894c0,5.96099 -4.71064,10.7894 -10.52624,10.7894z"
+                                  transform="rotate(-0.0731775 90.3477 57.0781)" opacity="undefined" stroke-width="5" stroke="#000"
+                                  fill="none"/>
+                            <path id="svg_27"
+                                  d="m224.55718,67.86745c-5.8156,0 -10.52624,-4.8284 -10.52624,-10.7894c0,-5.96099 4.71064,-10.7894 10.52624,-10.7894c5.8156,0 10.52624,4.8284 10.52624,10.7894c0,5.96099 -4.71064,10.7894 -10.52624,10.7894z"
+                                  transform="rotate(-0.0731775 224.557 57.0781)" opacity="undefined" stroke-width="5" stroke="#000"
+                                  fill="none"/>
+                            <path transform="rotate(-0.0731775 155.298 90.7619)" stroke="#000" id="svg_39"
+                                  d="m104.72028,139.44377c8.09988,-5.57135 7.62321,-5.98215 12.49949,-5.98215l75.46282,0c3.59428,0 8.44954,1.4357 14.21853,4.93632l38.11025,28.25821c15.12513,8.40523 6.04426,6.44232 -8.97399,6.44232l-155.06313,0.46016c-22.4557,0 -19.11597,1.50275 -8.97399,-6.44232l32.72003,-27.67254z"
+                                  opacity="undefined" stroke-width="15" fill="none"/>
+                        </g>
+                    </svg>
                 </div>
-                <div class="icon-case">
-                    <i class="fa-solid fa-calendar-days"></i>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="box">
-                    <h1>3</h1>
-                    <h3>Languages</h3>
-                </div>
-                <div class="icon-case">
-                    <i class="fa-solid fa-language"></i>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="box">
-                    <h1>60</h1>
-                    <h3>Size in Apples</h3>
-                </div>
-                <div class="icon-case">
-                    <i class="fa-solid fa-apple-whole"></i>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="box">
-                    <h1>Munich</h1>
-                    <h3>Lives in</h3>
-                </div>
-                <div class="icon-case">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
-            </div>
-
-        </div>
-        <div class="cards_big ">
-            <div class="big-card">
-                <div class="title">
-                    <h2>Project List</h2>
-                </div>
-                <table>
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="box1" name="box1" checked>
-                            <label for="box1">Two goats and a cat!</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="box2" name="box2">
-                            <label for="box2">Lorem ipsum dolar set.</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="box3" name="box3">
-                            <label for="box3">I don't know what to write here!</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="box4" name="box4">
-                            <label for="box4">I don't know what to write here!</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="box5" name="box5">
-                            <label for="box5">I don't know what to write here!</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="box6" name="box6">
-                            <label for="box6">I don't know what to write here!</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="box7" name="box7">
-                            <label for="box7">I don't know what to write here!</label>
-                        </li>
-                    </ul>
-                </table>
-            </div>
-            <div class="big-card">
-                <div class="title">
-                    <h2>Beer Highscores</h2>
-                </div>
-                <table>
-                    <tr>
-                        <th>Profile</th>
-                        <th>Name</th>
-                        <th>Beers</th>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/img/faces/face-3.jpg" alt=""></td>
-                        <td>Adrian Hillebrand</td>
-                        <td>9 <i class="fa-solid fa-beer-mug-empty"></i></td>                    </tr>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/img/faces/face-0.jpg" alt=""></td>
-                        <td>Finn Rehnert</td>
-                        <td>8 <i class="fa-solid fa-beer-mug-empty"></i></td>                    </tr>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/img/user.png" alt=""></td>
-                        <td>Gabriel Wuwer</td>
-                        <td>6 <i class="fa-solid fa-beer-mug-empty"></i></td>                    </tr>
-                    <tr>
-                        <td><img src="assets/img/user.png" alt=""></td>
-                        <td>Lennart Schuster</td>
-                        <td>3 <i class="fa-solid fa-beer-mug-empty"></i></td>                    </tr>
-                    </tr>
-                </table>
             </div>
         </div>
     </div>
@@ -168,6 +89,5 @@
 </div>
 
 </body>
-
 
 </html>

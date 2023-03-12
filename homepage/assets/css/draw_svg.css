@@ -1,0 +1,17 @@
+.drawsvg {
+    margin: 10px;
+    place-self: center;
+}
+
+.drawsvg path {
+    stroke-dasharray: 910;
+    stroke-dashoffset: 910;
+    animation: dash 3s linear forwards;
+
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

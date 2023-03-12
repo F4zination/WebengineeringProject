@@ -82,12 +82,12 @@ app.post('/register', function (request, response){
 
 // http://localhost:3000/home
 app.get('/home', function(request, response) {
-    // If the user is loggedi
+    // If the user is logged in
     let direction = "";
     if (request.session.loggedin) {
         // Output username
         console.log("User is successfully logged in")
-        direction = "/public/home.html";
+        direction = "../homepage/index.html";
         response.sendFile(path.join(__dirname, direction));
 
     }
