@@ -3,14 +3,15 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const {log} = require("util");
+const pug = require("pug");
 
 
 
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '',
-    database : 'nodelogin'
+    password : 'root',
+    database : 'Webengineering'
 });
 
 const loginFailedHeaderKey = "loginFailed";
@@ -18,6 +19,8 @@ const loginFailedHeaderKey = "loginFailed";
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
+
+app.set('view engine', 'pug');
 
 app.use(session({
     secret: 'secret',
@@ -77,7 +80,9 @@ app.post('/register', function (request, response){
         [request.body.signup_username, request.body.signup_pswd, request.body.signup_email]
     ]
     connection.query(query, [values]);
-    response.redirect("/");
+    request.session.username = request.body.signup_username;
+    request.session.loggedin = true;
+    response.redirect("/home");
 })
 
 // http://localhost:3000/home
@@ -87,14 +92,21 @@ app.get('/home', function(request, response) {
     if (request.session.loggedin) {
         // Output username
         console.log("User is successfully logged in")
-        direction = "../homepage/index.html";
-        response.sendFile(path.join(__dirname, direction));
+        response.render(
+            'index',
+            {username: request.session.username}
+
+        )
 
     }
 
 
-
-
 });
+
+app.post('/home', function(request, response){
+    request.session.loggedin = false;
+    request.session.username = "";
+    response.redirect("/");
+})
 
 app.listen(3000);

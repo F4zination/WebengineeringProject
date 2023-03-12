@@ -1,0 +1,126 @@
+ doctype html
+ head
+ meta(name=&apos;description&apos; content=&apos;Information about me&apos;)
+ meta(name=&apos;keywords&apos; content=&apos;IT, Studying, University, DHBW&apos;)
+ meta(name=&apos;author&apos; content=&apos;Adrian Hillebrand, Finn Rehnert, Gabriel Wuwer&apos;)
+ meta(charset=&apos;utf-8&apos;)
+ meta(http-equiv=&apos;X-UA-Compatible&apos; content=&apos;IE=edge,chrome=1&apos;)
+ meta(content=&apos;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0&apos; name=&apos;viewport&apos;)
+ meta(name=&apos;viewport&apos; content=&apos;width=device-width, initial-scale=1.0&apos;)
+ link(href=&apos;/homepage/assets/css/style.css&apos; type=&apos;text/css&apos; rel=&apos;stylesheet&apos;)
+ link(rel=&apos;icon&apos; type=&apos;image/png&apos; href=&apos;/homepage/assets/img/favicon.ico&apos;)
+ script(src=&apos;https://kit.fontawesome.com/3eaa4b2c6f.js&apos; crossorigin=&apos;anonymous&apos;)
+ title User Profile
+ .sidebar
+ .title
+ h1 Gabriel
+ // TODO: Hier muss responsive content rein mit ejs oder handlebars ect.
+ ul
+ li.hover(onclick=&quot;location.href=&apos;index.html&apos;;&quot;)
+ i.fa-solid.fa-address-card
+ span About Me
+ li(onclick=&quot;location.href=&apos;subpages/3d.html&apos;;&quot;)
+ i.fa-solid.fa-cube
+ span 3D Art
+ li(onclick=&quot;location.href=&apos;subpages/draw.html&apos;;&quot;)
+ i.fa-solid.fa-pen
+ span Drawing
+ li(onclick=&quot;location.href=&apos;subpages/fav.html&apos;;&quot;)
+ i.fa-solid.fa-heart
+ span Favorites
+ .main
+ .header
+ .nav
+ .account
+ .img-case
+ img(src=&apos;/homepage/assets/img/user.png&apos; alt=&apos;&apos;)
+ a.button(href=&apos;#&apos;) Logout
+ .content
+ .cards
+ .card
+ .box
+ h1 201.480
+ h3 Lived Hours
+ .icon-case
+ i.fa-solid.fa-calendar-days
+ .card
+ .box
+ h1 3
+ h3 Languages
+ .icon-case
+ i.fa-solid.fa-language
+ .card
+ .box
+ h1 60
+ h3 Size in Apples
+ .icon-case
+ i.fa-solid.fa-apple-whole
+ .card
+ .box
+ h1 Munich
+ h3 Lives in
+ .icon-case
+ i.fa-solid.fa-location-dot
+ .cards_big
+ .big-card
+ .title
+ h2 Project List
+ table
+ ul
+ li
+ input#box1(type=&apos;checkbox&apos; name=&apos;box1&apos; checked=&apos;&apos;)
+ label(for=&apos;box1&apos;) Two goats and a cat!
+ li
+ input#box2(type=&apos;checkbox&apos; name=&apos;box2&apos;)
+ label(for=&apos;box2&apos;) Lorem ipsum dolar set.
+ li
+ input#box3(type=&apos;checkbox&apos; name=&apos;box3&apos;)
+ label(for=&apos;box3&apos;) I don&apos;t know what to write here!
+ li
+ input#box4(type=&apos;checkbox&apos; name=&apos;box4&apos;)
+ label(for=&apos;box4&apos;) I don&apos;t know what to write here!
+ li
+ input#box5(type=&apos;checkbox&apos; name=&apos;box5&apos;)
+ label(for=&apos;box5&apos;) I don&apos;t know what to write here!
+ li
+ input#box6(type=&apos;checkbox&apos; name=&apos;box6&apos;)
+ label(for=&apos;box6&apos;) I don&apos;t know what to write here!
+ li
+ input#box7(type=&apos;checkbox&apos; name=&apos;box7&apos;)
+ label(for=&apos;box7&apos;) I don&apos;t know what to write here!
+ .big-card
+ .title
+ h2 Beer Highscores
+ table
+ tr
+ th Profile
+ th Name
+ th Beers
+ tr
+ td
+ img(src=&apos;/homepage/assets/img/faces/face-3.jpg&apos; alt=&apos;&apos;)
+ td Adrian Hillebrand
+ td
+ | 9
+ i.fa-solid.fa-beer-mug-empty
+ tr
+ td
+ img(src=&apos;homepage/assets/img/faces/face-0.jpg&apos; alt=&apos;&apos;)
+ td Finn Rehnert
+ td
+ | 8
+ i.fa-solid.fa-beer-mug-empty
+ tr
+ td
+ img(src=&apos;homepage/assets/img/user.png&apos; alt=&apos;&apos;)
+ td Gabriel Wuwer
+ td
+ | 6
+ i.fa-solid.fa-beer-mug-empty
+ tr
+ td
+ img(src=&apos;homepage/assets/img/user.png&apos; alt=&apos;&apos;)
+ td Lennart Schuster
+ td
+ | 3
+ i.fa-solid.fa-beer-mug-empty
