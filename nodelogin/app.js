@@ -9,6 +9,7 @@ const {RowDataPacket} = require("mysql/lib/protocol/packets");
 
 
 
+
 const accountConnection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
@@ -95,6 +96,7 @@ async function getBienenStoecke(username){
     let userID = 0;
     accountConnection.query('SELECT Id from accounts WHERE username = ?', [username], function(error, results, fields){
         userID = parseInt(results[0]['Id']);
+
     })
     await delay(0.01);
     await accountConnection.query('SELECT * from bienenstoecke WHERE FKaccountID = ?', [userID], function (error, result, fields){
@@ -148,12 +150,35 @@ app.get('/Logout', function(request, response){
     response.redirect("/");
 })
 
+app.post('/addCard', function(request, response){
+    let userID = 0;
+    accountConnection.query('SELECT Id from accounts WHERE username = ?', [username], function(error, results, fields){
+        userID = parseInt(results[0]['Id']);
 
+    })
+    let Values = [
+    request.body.StockId,
+    request.body.Namen,
+    request.body.Koenigin,
+    request.body.Staerke,
+    request.body.Futter,
+    request.body.HonigEntnommen,
+    request.body.Wabensitz,
+    userID]
+    accountConnection.query('INSERT INTO bienenstoecke (StockId, Namen, Koenigin, Volkssarke, Futter, HonigEntnommen, Wabensitz, FKaccountID) VALUES?', Values)
+
+    response.redirect('/home');
+})
+
+app.post('/delCard', function(request, response){
+    accountConnection.query('DELETE * from bienenstoecke where StockId =?', request.body.StockId);
+    response.redirect('/');
+})
 app.get('/3d', function(request, response){
     if(request.session.loggedin) {
         response.sendFile(path.join(__dirname + "/public/homepage/subpages/3d.html"));
     }else{
-        response.redirect('/');
+        response.redirect('/home');
     }
 })
 
