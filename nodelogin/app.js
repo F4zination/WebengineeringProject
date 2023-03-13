@@ -13,7 +13,7 @@ const {RowDataPacket} = require("mysql/lib/protocol/packets");
 const accountConnection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'Antwort42',
+    password : 'root',
     database : 'Webengineering'
 });
 
@@ -148,28 +148,39 @@ app.get('/Logout', function(request, response){
     response.redirect("/");
 })
 
-app.post('/addCard', function(request, response){
+app.get('/addCard', async function(request, response){
     let userID = 0;
     accountConnection.query('SELECT Id from accounts WHERE username = ?', [request.session.username], function(error, results, fields){
         userID = parseInt(results[0]['Id']);
 
     })
     let Values = [
-    request.body.Namen,
-    request.body.Koenigin,
-    request.body.Staerke,
-    request.body.Futter,
-    request.body.HonigEntnommen,
-    request.body.Wabensitz,
-    userID]
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        userID]
     accountConnection.query('INSERT INTO bienenstoecke (Namen, Koenigin, Volkssarke, Futter, HonigEntnommen, Wabensitz, FKaccountID) VALUES?', Values)
 
     response.redirect('/home');
 })
 
-app.post('/delCard', function(request, response){
-    accountConnection.query('DELETE * from bienenstoecke where StockId =?', request.body.StockId);
-    response.redirect('/');
+app.post('/addCard', async function (request, response){
+
+    let query = `UPDATE bienenstoecke SET Namen = "${request.body.Namen}", Koenigin = "${request.body.Koenigin}", Volkssaerke = "${request.body.Staerke}", Futter = "${request.body.Futter}", HonigEntnommen = "${request.body.HonigEntnommen}",  Wabensitz = "${request.body.Wabensitz}" WHERE StockId = "${request.body.StockId}"`;
+    console.log("Values of new Card")
+    console.log(query);
+    accountConnection.query(query);
+    await delay(0.05);
+    response.redirect('/home');
+})
+
+app.post('/delCard', async function(request, response){
+    accountConnection.query(`DELETE from bienenstoecke where StockId = "${request.body.StockId}";`);
+    await delay(0.05);
+    response.redirect('/home');
 })
 app.get('/3d', function(request, response){
     if(request.session.loggedin) {

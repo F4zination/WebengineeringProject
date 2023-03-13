@@ -73,27 +73,28 @@ head
                                     li
                                         label(for='name') Name
                                         br
-                                        input#name.form-control(type='text' name='name' value= stockcard.Namen)
+                                        input#name.form-control(type='input' name='Namen' value= stockcard.Namen)
                                     li
                                         label(for='koenigin') Koenigin
                                         br
-                                        input#koenigin.form-control(type='text' name='Koenigin' value= stockcard.Koenigin)
+                                        input#koenigin.form-control(type='input' name='Koenigin' value= stockcard.Koenigin)
                                     li
                                         label(for='volk') Volksstärke
                                         br
-                                        input#volk.form-control(type='number' name='Volksstaerke' value= stockcard.Staerke)
+                                        input#volk.form-control(type='input' name='Staerke' value= stockcard.Staerke)
                                     li
                                         label(for='futter') Futter (kg)
                                         br
-                                        input#futter.form-control(type='number' name='futter' value= stockcard.Futter)
+                                        input#futter.form-control(type='input' name='Futter' value= stockcard.Futter)
                                     li
                                         label(for='honig_ent') Honig Entnommen (kg)
                                         br
-                                        input#honig_ent.form-control(type='number' name='honig_ent' value= stockcard.HonigEntnommen)
+                                        input#honig_ent.form-control(type='input' name='HonigEntnommen' value= stockcard.HonigEntnommen)
                                     li
                                         label(for='wabensitz') Wabensitz
                                         br
-                                        input#wabensitz.form-control(type='number' name='Wabensitz' value= stockcard.Wabensitz)
+                                        input#wabensitz.form-control(type='input' name='Wabensitz' value= stockcard.Wabensitz)
+                                        input(type="hidden" name="StockId" value= stockcard.StockId)
                                 button.btn(type="submit" name="sub") Save
                             form(role='form' method='POST' action='/delCard')
                                 input(type="hidden" name="StockId" value= stockcard.StockId)
