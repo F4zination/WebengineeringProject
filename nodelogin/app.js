@@ -152,12 +152,11 @@ app.get('/Logout', function(request, response){
 
 app.post('/addCard', function(request, response){
     let userID = 0;
-    accountConnection.query('SELECT Id from accounts WHERE username = ?', [username], function(error, results, fields){
+    accountConnection.query('SELECT Id from accounts WHERE username = ?', [request.session.username], function(error, results, fields){
         userID = parseInt(results[0]['Id']);
 
     })
     let Values = [
-    request.body.StockId,
     request.body.Namen,
     request.body.Koenigin,
     request.body.Staerke,
@@ -165,7 +164,7 @@ app.post('/addCard', function(request, response){
     request.body.HonigEntnommen,
     request.body.Wabensitz,
     userID]
-    accountConnection.query('INSERT INTO bienenstoecke (StockId, Namen, Koenigin, Volkssarke, Futter, HonigEntnommen, Wabensitz, FKaccountID) VALUES?', Values)
+    accountConnection.query('INSERT INTO bienenstoecke (Namen, Koenigin, Volkssarke, Futter, HonigEntnommen, Wabensitz, FKaccountID) VALUES?', Values)
 
     response.redirect('/home');
 })
