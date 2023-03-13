@@ -14,7 +14,6 @@ head
 .sidebar
     .title
         text(class="Username")=username
-        // TODO: Hier muss responsive content rein mit ejs oder handlebars ect.
     ul
         li(onclick="location.href='/fav';")
             i.fa-solid.fa-heart
@@ -35,7 +34,7 @@ head
             .account
                 .img-case
                     img(src='/homepage/assets/img/user.png' alt='')
-                    a.button(onclick="location.href='/logout") Logout
+                a.button(onclick="location.href='/logout") Logout
     .content
         .cards
             .card
@@ -67,10 +66,38 @@ head
             each stockcard in stockcards
                 .card
                     .box
-                        h1= stockcard.Namen
-                        h3= stockcard.Koenigin
-
-
+                        .embed
+                            h3 Stockkarte
+                            form(role='form' method='POST' action='/addCard')
+                                ul
+                                    li
+                                        label(for='name') Name
+                                        br
+                                        input#name.form-control(type='text' name='name' value= stockcard.Namen)
+                                    li
+                                        label(for='koenigin') Koenigin
+                                        br
+                                        input#koenigin.form-control(type='text' name='Koenigin' value= stockcard.Koenigin)
+                                    li
+                                        label(for='volk') Volksstärke
+                                        br
+                                        input#volk.form-control(type='number' name='Volksstaerke' value= stockcard.Staerke)
+                                    li
+                                        label(for='futter') Futter (kg)
+                                        br
+                                        input#futter.form-control(type='number' name='futter' value= stockcard.Futter)
+                                    li
+                                        label(for='honig_ent') Honig Entnommen (kg)
+                                        br
+                                        input#honig_ent.form-control(type='number' name='honig_ent' value= stockcard.HonigEntnommen)
+                                    li
+                                        label(for='wabensitz') Wabensitz
+                                        br
+                                        input#wabensitz.form-control(type='number' name='Wabensitz' value= stockcard.Wabensitz)
+                                button.btn(type="submit" name="sub") Save
+                            form(role='form' method='POST' action='/delCard')
+                                input(type="hidden" name="StockId" value= stockcard.StockId)
+                                button(type="submit" name="remove") Delete
         .cards_big
             .big-card
                 .title

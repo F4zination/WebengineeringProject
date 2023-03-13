@@ -31,6 +31,17 @@ h3 {
     color: white;
     padding: 5px 10px;
     text-align: center;
+    border: 2px solid #1c7dd4;
+    border-radius: 10px;
+
+}
+
+button {
+    background: #1c7dd4;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    border: 2px solid #1c7dd4;
     border-radius: 10px;
 
 }
@@ -43,7 +54,14 @@ h3 {
 .button:hover {
     color: #1c7dd4;
     background: white;
-    padding: 3px 8px;
+    padding: 5px 10px;
+    border: 2px solid #1c7dd4;
+}
+
+button:hover {
+    color: #1c7dd4;
+    background: white;
+    padding: 5px 10px;
     border: 2px solid #1c7dd4;
 }
 
@@ -220,10 +238,52 @@ td {
 .main .content .cards .card .embed {
     padding: 10px;
     flex-flow: column;
+    justify-content: flex-start;
+}
+
+.main .content .cards .card .embed h1{
+    align-self: center;
+}
+
+.main .content .cards .card ul {
+    margin-top: 20px;
+}
+
+.main .content .cards .card li {
+    margin-top: 20px;
+}
+
+.main .content .cards .card label {
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.card input {
+    font-family: inherit;
+    width: 98%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.0rem;
+    background: transparent;
+    transition: border-color 0.2s;
 }
 
 .main .content .cards .card .embed h3{
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.main .content .cards .card .embed button{
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    min-width: 70px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .icon-case {
