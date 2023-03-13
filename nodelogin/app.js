@@ -5,15 +5,18 @@ const path = require('path');
 const {log} = require("util");
 const pug = require("pug");
 const {ER_ACCESS_DENIED_CHANGE_USER_ERROR} = require("mysql/lib/protocol/constants/errors");
+const {RowDataPacket} = require("mysql/lib/protocol/packets");
 
 
 
-const connection = mysql.createConnection({
+const accountConnection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
     password : 'root',
     database : 'Webengineering'
 });
+
+
 
 const loginFailedHeaderKey = "loginFailed";
 
@@ -49,7 +52,7 @@ app.post('/auth', function(request, response) {
     // Ensure the input fields exists and are not empty
     if (username && password) {
         // Execute SQL query that'll select the account from the database based on the specified username and password
-        connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+        accountConnection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
             // If there is an issue with the query, output the error
             if (error) throw error;
             // If the account exists
@@ -80,22 +83,60 @@ app.post('/register', function (request, response){
     let values = [
         [request.body.signup_username, request.body.signup_pswd, request.body.signup_email]
     ]
-    connection.query(query, [values]);
+    accountConnection.query(query, [values]);
     request.session.username = request.body.signup_username;
     request.session.loggedin = true;
     response.redirect("/home");
 })
 
+async function getBienenStoecke(username){
+    let UsersBienenStoecke =  [];
+
+    let userID = 0;
+    accountConnection.query('SELECT Id from accounts WHERE username = ?', [username], function(error, results, fields){
+        userID = parseInt(results[0]['Id']);
+    })
+    await delay(0.01);
+    await accountConnection.query('SELECT * from bienenstoecke WHERE FKaccountID = ?', [userID], function (error, result, fields){
+        for(let i = 0; i < result.length; i++) {
+            let BienenStock = {
+                StockId         : result[i]['StockId'],
+                Namen           : result[i]['Namen'],
+                Koenigin        : result[i]['Koenigin'],
+                Staerke         : result[i]['Volkssaerke'],
+                Futter          : result[i]['Futter'],
+                HonigEntnommen  : result[i]['HonigEntnommen'],
+                Wabensitz       : result[i]['Wabensitz']
+            }
+            console.log('In Query, Bienenstock: ' );
+            console.log(BienenStock);
+            UsersBienenStoecke.push(BienenStock);
+        };
+    });
+    return UsersBienenStoecke;
+}
+
+const delay = seconds => {
+    return new Promise (
+        resolve => setTimeout (resolve, seconds * 1000)
+    )
+};
+
 // http://localhost:3000/home
-app.get('/home', function(request, response) {
+app.get('/home', async function (request, response) {
     if (request.session.loggedin) {
+        let BienenStoecke = await getBienenStoecke(request.session.username);
+        await delay(0.01);
         // Output username
         console.log("User is successfully logged in")
         response.render(
             'index',
-            {username: request.session.username}
+            {
+                username: request.session.username,
+                stockcards: BienenStoecke
+            }
         )
-    }else{
+    } else {
         response.redirect("/");
     }
 });

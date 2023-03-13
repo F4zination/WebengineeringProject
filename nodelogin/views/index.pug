@@ -62,6 +62,15 @@ head
                     h3 Lives in
                 .icon-case
                     i.fa-solid.fa-location-dot
+
+        .cards
+            each stockcard in stockcards
+                .card
+                    .box
+                        h1= stockcard.Namen
+                        h3= stockcard.Koenigin
+
+
         .cards_big
             .big-card
                 .title
