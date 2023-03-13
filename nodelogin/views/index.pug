@@ -13,21 +13,21 @@ head
     title User Profile
 .sidebar
     .title
-        h1=username
+        text(class="Username")=username
         // TODO: Hier muss responsive content rein mit ejs oder handlebars ect.
     ul
-        li.hover(onclick="location.href='/home';")
-            i.fa-solid.fa-address-card
-            span About Me
+        li(onclick="location.href='/fav';")
+            i.fa-solid.fa-heart
+            span Favorites
         li(onclick="location.href='/3d';")
             i.fa-solid.fa-cube
             span 3D Art
         li(onclick="location.href='draw';")
             i.fa-solid.fa-pen
             span Drawing
-        li(onclick="location.href='/fav';")
-            i.fa-solid.fa-heart
-            span Favorites
+        li.hover(onclick="location.href='/home';")
+            i.fa-solid.fa-address-card
+            span About Me
 .main
 
     .header

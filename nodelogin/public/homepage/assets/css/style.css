@@ -17,7 +17,7 @@ li {
     list-style: none;
 }
 
-h1,
+h1 ,
 h2 {
     color: #444;
 }
@@ -33,6 +33,11 @@ h3 {
     text-align: center;
     border-radius: 10px;
 
+}
+
+.Username {
+    color: white;
+    scale: 2.5;
 }
 
 .button:hover {
@@ -64,8 +69,9 @@ td {
 
 .sidebar {
     position: fixed;
-    background: linear-gradient(to bottom, #1F77D0 0%, #533ce1 100%);
-    width: 20vw;
+    background-image: url("../img/artBackground.jpg");
+    background-position: center;
+    width: 15vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -114,16 +120,18 @@ td {
 .main {
     position: absolute;
     right: 0;
-    width: 80vw;
+    width: 85vw;
     height: 100vh;
     background: #f1f1f1;
 }
+
+
 
 .main .header {
     position: fixed;
     top: 0;
     right: 0;
-    width: 80vw;
+    width: 85vw;
     height: 10vh;
     background: white;
     display: flex;

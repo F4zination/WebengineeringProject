@@ -11,8 +11,8 @@ const {ER_ACCESS_DENIED_CHANGE_USER_ERROR} = require("mysql/lib/protocol/constan
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '',
-    database : 'nodelogin'
+    password : 'root',
+    database : 'Webengineering'
 });
 
 const loginFailedHeaderKey = "loginFailed";
