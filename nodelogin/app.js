@@ -13,7 +13,7 @@ const {RowDataPacket} = require("mysql/lib/protocol/packets");
 const accountConnection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'Antwort42',
+    password : 'root',
     database : 'Webengineering'
 });
 
@@ -125,10 +125,11 @@ const delay = seconds => {
 // http://localhost:3000/home
 app.get('/home', async function (request, response) {
     if (request.session.loggedin) {
-        let BienenStoecke = await getBienenStoecke(request.session.username);
+        let  BienenStoecke = await getBienenStoecke(request.session.username);
         await delay(0.01);
         // Output username
         console.log("User is successfully logged in")
+        console.log(BienenStoecke);
         response.render(
             'index',
             {
@@ -154,16 +155,17 @@ app.get('/addCard', async function(request, response){
         userID = parseInt(results[0]['Id']);
 
     })
-    let Values = [
+    await delay(0.05);
+    let Values = [[
         " ",
         " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        userID]
-    accountConnection.query('INSERT INTO bienenstoecke (Namen, Koenigin, Volkssarke, Futter, HonigEntnommen, Wabensitz, FKaccountID) VALUES?', Values)
-
+        0,
+        0,
+        0,
+        0,
+        userID]]
+    accountConnection.query('INSERT INTO bienenstoecke (Namen, Koenigin, Volkssaerke, Futter, HonigEntnommen, Wabensitz, FKaccountID) VALUES?', [Values])
+    await delay(0.05);
     response.redirect('/home');
 })
 
