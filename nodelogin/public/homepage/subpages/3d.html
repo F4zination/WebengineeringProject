@@ -12,7 +12,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="homepage/assets/css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <script src="https://kit.fontawesome.com/3eaa4b2c6f.js" crossorigin="anonymous"></script>
 
@@ -25,13 +25,13 @@
 
 <div class="sidebar">
     <div class="title">
-        <h1>Gabriel</h1> <!-- TODO: Hier muss responsive content rein mit ejs oder handlebars ect. -->
+        <h1>3D Art</h1> <!-- TODO: Hier muss responsive content rein mit ejs oder handlebars ect. -->
     </div>
     <ul>
-        <li onclick="location.href='../../../views/index.html';"><i class="fa-solid fa-address-card"></i> <span>About Me</span></li>
-        <li onclick="location.href='3d.html';" class="hover"><i class="fa-solid fa-cube"></i> <span>3D Art</span></li>
-        <li onclick="location.href='draw.html';"><i class="fa-solid fa-pen"></i> <span>Drawing</span></li>
-        <li onclick="location.href='fav.html';"><i class="fa-solid fa-heart"></i> <span>Favorites</span></li>
+        <li onclick="location.href='/home';"><i class="fa-solid fa-address-card"></i> <span>About Me</span></li>
+        <li onclick="location.href='/3d';" class="hover"><i class="fa-solid fa-cube"></i> <span>3D Art</span></li>
+        <li onclick="location.href='/draw';"><i class="fa-solid fa-pen"></i> <span>Drawing</span></li>
+        <li onclick="location.href='/fav';"><i class="fa-solid fa-heart"></i> <span>Favorites</span></li>
 
     </ul>
 </div>
@@ -42,9 +42,9 @@
         <div class="nav">
             <div class="account">
                 <div class="img-case">
-                    <img src="../assets/img/user.png" alt="">
+                    <img src="homepage/assets/img/user.png" alt="">
                 </div>
-                <a href="#" class="button">Logout</a>
+                <a href="/Logout" class="button">Logout</a>
             </div>
         </div>
     </div>

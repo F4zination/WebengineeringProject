@@ -4,14 +4,15 @@ const session = require('express-session');
 const path = require('path');
 const {log} = require("util");
 const pug = require("pug");
+const {ER_ACCESS_DENIED_CHANGE_USER_ERROR} = require("mysql/lib/protocol/constants/errors");
 
 
 
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'root',
-    database : 'Webengineering'
+    password : '',
+    database : 'nodelogin'
 });
 
 const loginFailedHeaderKey = "loginFailed";
@@ -87,26 +88,50 @@ app.post('/register', function (request, response){
 
 // http://localhost:3000/home
 app.get('/home', function(request, response) {
-    // If the user is logged in
-    let direction = "";
     if (request.session.loggedin) {
         // Output username
         console.log("User is successfully logged in")
         response.render(
             'index',
             {username: request.session.username}
-
         )
-
+    }else{
+        response.redirect("/");
     }
-
-
 });
 
-app.post('/home', function(request, response){
+app.get('/Logout', function(request, response){
     request.session.loggedin = false;
     request.session.username = "";
+    console.log("User is logged out")
     response.redirect("/");
 })
+
+
+app.get('/3d', function(request, response){
+    if(request.session.loggedin) {
+        response.sendFile(path.join(__dirname + "/public/homepage/subpages/3d.html"));
+    }else{
+        response.redirect('/');
+    }
+})
+
+app.get('/draw', function(request, response){
+    if(request.session.loggedin) {
+        response.sendFile(path.join(__dirname + "/public/homepage/subpages/draw.html"));
+    }else{
+        response.redirect('/');
+    }
+})
+
+app.get('/fav', function(request, response){
+    if(request.session.loggedin) {
+        response.sendFile(path.join(__dirname + "/public/homepage/subpages/fav.html"));
+    }else{
+        response.redirect('/');
+    }
+})
+
+
 
 app.listen(3000);

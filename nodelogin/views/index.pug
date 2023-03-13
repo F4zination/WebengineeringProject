@@ -8,7 +8,7 @@ head
     meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(href='/homepage/assets/css/style.css' type='text/css' rel='stylesheet')
-    link(rel='icon' type='image/png' href='/homepage/assets/img/favicon.ico')
+    link(rel='icon' type='image/png' href='/homepage/assets/img/user.png')
     script(src='https://kit.fontawesome.com/3eaa4b2c6f.js' crossorigin='anonymous')
     title User Profile
 .sidebar
@@ -16,16 +16,16 @@ head
         h1=username
         // TODO: Hier muss responsive content rein mit ejs oder handlebars ect.
     ul
-        li.hover(onclick="location.href='index.html';")
+        li.hover(onclick="location.href='/home';")
             i.fa-solid.fa-address-card
             span About Me
-        li(onclick="location.href='subpages/3d.html';")
+        li(onclick="location.href='/3d';")
             i.fa-solid.fa-cube
             span 3D Art
-        li(onclick="location.href='subpages/draw.html';")
+        li(onclick="location.href='draw';")
             i.fa-solid.fa-pen
             span Drawing
-        li(onclick="location.href='subpages/fav.html';")
+        li(onclick="location.href='/fav';")
             i.fa-solid.fa-heart
             span Favorites
 .main
@@ -35,7 +35,7 @@ head
             .account
                 .img-case
                     img(src='/homepage/assets/img/user.png' alt='')
-                    a.button() Logout
+                    a.button(onclick="location.href='/logout") Logout
     .content
         .cards
             .card
