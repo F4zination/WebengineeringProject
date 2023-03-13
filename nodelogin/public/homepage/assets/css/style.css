@@ -69,8 +69,7 @@ td {
 
 .sidebar {
     position: fixed;
-    background-image: url("../img/artBackground.jpg");
-    background-position: center;
+    background: linear-gradient(to bottom, #1F77D0 0%, #533ce1 100%);
     width: 15vw;
     min-height: 100vh;
     display: flex;
