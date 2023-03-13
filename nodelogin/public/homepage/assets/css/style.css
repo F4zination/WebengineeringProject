@@ -26,16 +26,6 @@ h3 {
     color: #999;
 }
 
-.button {
-    background: #1c7dd4;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    border: 2px solid #1c7dd4;
-    border-radius: 10px;
-
-}
-
 button {
     background: #1c7dd4;
     color: white;
@@ -43,7 +33,22 @@ button {
     text-align: center;
     border: 2px solid #1c7dd4;
     border-radius: 10px;
+    cursor: pointer;
+}
 
+.float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#1c7dd4;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+    padding: 0px 0;
+    font-size: 2em;
 }
 
 .Username {
@@ -51,17 +56,9 @@ button {
     scale: 2.5;
 }
 
-.button:hover {
-    color: #1c7dd4;
-    background: white;
-    padding: 5px 10px;
-    border: 2px solid #1c7dd4;
-}
-
 button:hover {
     color: #1c7dd4;
     background: white;
-    padding: 5px 10px;
     border: 2px solid #1c7dd4;
 }
 
@@ -165,11 +162,12 @@ td {
 }
 
 .main .header .nav button {
-    width: 40px;
-    height: 40px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 200px;
 
 }
 
@@ -196,7 +194,12 @@ td {
     width: 50px;
     height: 50px;
     border-radius: 100%;
+
 }
+.main .header .nav .account i{
+    font-size: 2em;
+}
+
 
 .main .header .nav .account .img-case img {
     position: absolute;

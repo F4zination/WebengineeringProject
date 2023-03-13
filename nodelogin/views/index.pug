@@ -1,6 +1,6 @@
 doctype html
 head
-    meta(name='description' content='Information about me')
+    meta(name='description' content='Hivecard Manager')
     meta(name='keywords' content='IT, Studying, University, DHBW')
     meta(name='author' content='Adrian Hillebrand, Finn Rehnert, Gabriel Wuwer')
     meta(charset='utf-8')
@@ -15,50 +15,49 @@ head
     .title
         text(class="Username")=username
     ul
+        li.hover(onclick="location.href='/home';")
+            i.fa-brands.fa-wpforms
+            span Cards
         li(onclick="location.href='/fav';")
-            i.fa-solid.fa-heart
-            span Favorites
-        li(onclick="location.href='/3d';")
-            i.fa-solid.fa-cube
-            span 3D Art
+            i.fa-solid.fa-map-location-dot
+            span Locations
         li(onclick="location.href='draw';")
             i.fa-solid.fa-pen
-            span Drawing
-        li.hover(onclick="location.href='/home';")
-            i.fa-solid.fa-address-card
-            span About Me
+            span ToDos
 .main
 
     .header
         .nav
+            h1 My Beeportal
             .account
                 .img-case
                     img(src='/homepage/assets/img/user.png' alt='')
-                a.button(onclick="location.href='/logout") Logout
+                button(onclick="location.href='/Logout';")
+                    i.fa-solid.fa-power-off
     .content
         .cards
             .card
                 .box
-                    h1 201.480
-                    h3 Lived Hours
+                    h1 2020
+                    h3 Member Since
                 .icon-case
                     i.fa-solid.fa-calendar-days
             .card
                 .box
-                    h1 3
-                    h3 Languages
+                    h1 124 kg
+                    h3 Yield Honey
                 .icon-case
-                    i.fa-solid.fa-language
+                    i.fa-solid.fa-jar
             .card
                 .box
-                    h1 60
-                    h3 Size in Apples
+                    h1 6
+                    h3 Bee Hives
                 .icon-case
-                    i.fa-solid.fa-apple-whole
+                    i.fa-solid.fa-bug
             .card
                 .box
                     h1 Munich
-                    h3 Lives in
+                    h3 Located in
                 .icon-case
                     i.fa-solid.fa-location-dot
 
@@ -162,3 +161,5 @@ head
                         td
                             | 3
                             i.fa-solid.fa-beer-mug-empty
+    button(onclick="location.href='/addCard';").float
+        i.fa-solid.fa-plus
