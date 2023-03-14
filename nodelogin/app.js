@@ -13,7 +13,7 @@ const {RowDataPacket} = require("mysql/lib/protocol/packets");
 const accountConnection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'Antwort42',
+    password : 'root',
     database : 'Webengineering'
 });
 
@@ -187,7 +187,8 @@ app.post('/delCard', async function(request, response){
 
 app.get('/todo', function(request, response){
     if(request.session.loggedin) {
-        response.sendFile(path.join(__dirname + "/public/homepage/subpages/todo.html"));
+        response.render('todo',{
+            username: request.session.username});
     }else{
         response.redirect('/');
     }
@@ -195,7 +196,10 @@ app.get('/todo', function(request, response){
 
 app.get('/map', function(request, response){
     if(request.session.loggedin) {
-        response.sendFile(path.join(__dirname + "/public/homepage/subpages/map.html"));
+        response.render('map', {
+            username: request.session.username
+        });
+
     }else{
         response.redirect('/');
     }

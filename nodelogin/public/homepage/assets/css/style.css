@@ -63,6 +63,15 @@ button:hover {
     justify-content: space-around;
     padding: 15px 10px;
 }
+.clock {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    color: #444444;
+    font-size: 20px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+
+}
 
 table {
     padding: 10px;

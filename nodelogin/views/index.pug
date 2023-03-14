@@ -36,6 +36,10 @@ head
                     i.fa-solid.fa-power-off
     .content
         .cards
+
+            .card
+                .box
+                    #MyClockDisplay.clock(onload='showTime()')
             .card
                 .box
                     h1 2020
@@ -54,6 +58,7 @@ head
                     h3 Located in
                 .icon-case
                     i.fa-solid.fa-location-dot
+            script(src="/homepage/assets/js/clock.js")
             .card
                 .embed
                     iframe(width='210' height='120' name='CW1' style='border:1px solid;border-radius:10px;border-color:transparent;' src='https://api.wetteronline.de/wetterwidget?gid=10866&modeid=CW1&seourl=muenchen&locationname=München&lang=de')

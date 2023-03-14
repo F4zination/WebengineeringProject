@@ -1,3 +1,6 @@
+Quellen Frontend:
+
+
 https://www.w3schools.com/html/html_head.asp
 https://www.w3schools.com/howto/howto_js_todolist.asp
 https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius?retiredLocale=de
