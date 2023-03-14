@@ -1,11 +1,11 @@
 :root{
     /*--main-bg-gradient: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*/
-	--main-bg-gradient: linear-gradient(to bottom, #09203F , #537895, #09203F  );
+	--main-bg-gradient: linear-gradient(180deg, rgba(255,145,0,1) 0%, rgba(255,209,0,1) 100%);;
     /*--button-bg-color: #573b8a;
     --button-bg-hover-color: #6d44b8;
 	*/
-	--button-bg-color: #379bb3;
-	--button-bg-hover-color: #54b2be9f;
+	--button-bg-color: rgba(255,145,0,1);
+	--button-bg-hover-color: rgba(255,125,0,1);
 }
 
 body{
