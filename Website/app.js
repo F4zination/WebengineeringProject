@@ -1,3 +1,4 @@
+// requirements loading
 const mysql = require('mysql');
 const express = require('express');
 const session = require('express-session');
@@ -10,7 +11,7 @@ const path = require('path');
 const accountConnection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'Antwort42',
+    password : 'root',
     database : 'Webengineering'
 });
 
@@ -47,7 +48,7 @@ app.post('/auth', function(request, response) {
     let password = request.body.login_pswd;
 
     // Output username
-    console.log(`User ${request.session.username} is successfully logged in`)
+    console.log(`User ${username} is successfully logged in`)
 
     // Execute SQL query that'll select the account from the database based on the specified username and password
     accountConnection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
@@ -181,8 +182,6 @@ app.get('/addCard', async function(request, response){
         new Date().toISOString().slice(0, 19).replace('T', ' ')]]
     accountConnection.query('INSERT INTO bienenstoecke (Namen, Koenigin, Volkssaerke, Futter, HonigEntnommen, Wabensitz, FKaccountID, ErstellDatum) VALUES?', [Values])
     await delay(0.05);
-    console.log('Datum ');
-    console.log(request.query.ErstellDatum);
     response.redirect('/home');
 
 })
@@ -191,8 +190,6 @@ app.get('/addCard', async function(request, response){
 app.post('/addCard', async function (request, response){
 
     let query = `UPDATE bienenstoecke SET Namen = "${request.body.Namen}", Koenigin = "${request.body.Koenigin}", Volkssaerke = "${request.body.Staerke}", Futter = "${request.body.Futter}", HonigEntnommen = "${request.body.HonigEntnommen}",  Wabensitz = "${request.body.Wabensitz}" WHERE StockId = "${request.body.StockId}"`;
-    console.log("Values of new Card")
-    console.log(query);
     accountConnection.query(query);
     await delay(0.05);
     response.redirect('/home');
