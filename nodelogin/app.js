@@ -184,25 +184,18 @@ app.post('/delCard', async function(request, response){
     await delay(0.05);
     response.redirect('/home');
 })
-app.get('/3d', function(request, response){
-    if(request.session.loggedin) {
-        response.sendFile(path.join(__dirname + "/public/homepage/subpages/3d.html"));
-    }else{
-        response.redirect('/home');
-    }
-})
 
-app.get('/draw', function(request, response){
+app.get('/todo', function(request, response){
     if(request.session.loggedin) {
-        response.sendFile(path.join(__dirname + "/public/homepage/subpages/draw.html"));
+        response.sendFile(path.join(__dirname + "/public/homepage/subpages/todo.html"));
     }else{
         response.redirect('/');
     }
 })
 
-app.get('/fav', function(request, response){
+app.get('/map', function(request, response){
     if(request.session.loggedin) {
-        response.sendFile(path.join(__dirname + "/public/homepage/subpages/fav.html"));
+        response.sendFile(path.join(__dirname + "/public/homepage/subpages/map.html"));
     }else{
         response.redirect('/');
     }

@@ -18,10 +18,10 @@ head
         li.hover(onclick="location.href='/home';")
             i.fa-brands.fa-wpforms
             span Cards
-        li(onclick="location.href='/fav';")
+        li(onclick="location.href='/map';")
             i.fa-solid.fa-clipboard-check
-            span Map
-        li(onclick="location.href='draw';")
+            span Hives
+        li(onclick="location.href='/todo';")
             i.fa-solid.fa-pen
             span ToDo
 .main
@@ -94,68 +94,5 @@ head
                             form(role='form' method='POST' action='/delCard')
                                 input(type="hidden" name="StockId" value= stockcard.StockId)
                                 button(type="submit" name="remove") Delete
-        .cards_big
-            .big-card
-                .title
-                    h2 Project List
-                table
-                    ul
-                        li
-                            input#box1(type='checkbox' name='box1' checked='')
-                            label(for='box1') Two goats and a cat!
-                        li
-                            input#box2(type='checkbox' name='box2')
-                            label(for='box2') Lorem ipsum dolar set.
-                        li
-                            input#box3(type='checkbox' name='box3')
-                            label(for='box3') I don&apos;t know what to write here!
-                        li
-                            input#box4(type='checkbox' name='box4')
-                            label(for='box4') I don&apos;t know what to write here!
-                        li
-                            input#box5(type='checkbox' name='box5')
-                            label(for='box5') I don&apos;t know what to write here!
-                        li
-                            input#box6(type='checkbox' name='box6')
-                            label(for='box6') I don&apos;t know what to write here!
-                        li
-                            input#box7(type='checkbox' name='box7')
-                            label(for='box7') I don&apos;t know what to write here!
-            .big-card
-                .title
-                    h2 Beer Highscores
-                table
-                    tr
-                        th Profile
-                        th Name
-                        th Beers
-                    tr
-                        td
-                            img(src='/homepage/assets/img/faces/face-3.jpg' alt='')
-                        td Adrian Hillebrand
-                        td
-                            | 9
-                            i.fa-solid.fa-beer-mug-empty
-                    tr
-                        td
-                            img(src='homepage/assets/img/faces/face-0.jpg' alt='')
-                        td Finn Rehnert
-                        td
-                            | 8
-                            i.fa-solid.fa-beer-mug-empty
-                    tr
-                        td
-                            img(src='homepage/assets/img/user.png' alt='')
-                        td Gabriel Wuwer
-                        td
-                            | 6
-                            i.fa-solid.fa-beer-mug-empty
-                    tr
-                        td
-                            img(src='homepage/assets/img/user.png' alt='')
-                        td Lennart Schuster
-                        td
-                            | 3
-                            i.fa-solid.fa-beer-mug-empty
     button(onclick="location.href='/addCard';").float
         i.fa-solid.fa-plus

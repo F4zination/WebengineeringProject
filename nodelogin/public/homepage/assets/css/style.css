@@ -27,11 +27,11 @@ h3 {
 }
 
 button {
-    background: #1c7dd4;
+    background: rgb(255,145,0);
     color: white;
     padding: 5px 10px;
     text-align: center;
-    border: 2px solid #1c7dd4;
+    border: 2px solid rgb(255,145,0);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -42,7 +42,7 @@ button {
     height:60px;
     bottom:40px;
     right:40px;
-    background-color:#1c7dd4;
+    background-color:rgb(255,145,0);
     color:#FFF;
     border-radius:50px;
     text-align:center;
@@ -52,9 +52,9 @@ button {
 }
 
 button:hover {
-    color: #1c7dd4;
+    color: rgb(255,145,0);
     background: white;
-    border: 2px solid #1c7dd4;
+    border: 2px solid rgb(255,145,0);
 }
 
 .title {
@@ -78,7 +78,7 @@ td {
 
 .sidebar {
     position: fixed;
-    background: linear-gradient(to bottom, #1F77D0 0%, #533ce1 100%);
+    background: linear-gradient(180deg, rgba(255,145,0,1) 0%, rgba(255,209,0,1) 100%);
     width: 15vw;
     min-height: 100vh;
     display: flex;
@@ -98,7 +98,7 @@ td {
 
 .sidebar li {
     font-size: 24px;
-    padding: 10px 10px;
+    padding: 10px 25px;
     color: white;
     display: flex;
     cursor:pointer;
@@ -120,12 +120,12 @@ td {
 
 .sidebar li:hover {
     background: white;
-    color: #1c7dd4;
+    color: rgb(255,145,0);
 }
 
 .sidebar .hover{
     background: white;
-    color: #1c7dd4;
+    color: rgb(255,145,0);
     cursor: default;
 }
 
@@ -226,6 +226,10 @@ td {
     flex-wrap: wrap;
 }
 
+.main .content .big-card .title {
+    padding: 10px 15px 0px 15px;
+}
+
 .main .content .cards .card {
     min-width: 250px;
     min-height: 150px;
@@ -238,13 +242,17 @@ td {
     border-radius: 10px;
 }
 
-.main .content .cards .card .embed {
+.main .content .embed {
     padding: 10px;
     flex-flow: column;
     justify-content: flex-start;
 }
 
-.main .content .cards .card .embed h1{
+.embed iframe{
+    border-radius: 10px;
+}
+
+.main .content .embed h1{
     align-self: center;
 }
 
@@ -290,12 +298,12 @@ td {
 }
 
 .icon-case {
-    color: #0f3363;
+    color: rgb(255,145,0);
     font-size: 5em;
 }
 
 .main .content .cards_big {
-    min-height: 60vh;
+    min-height: 30vh;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
