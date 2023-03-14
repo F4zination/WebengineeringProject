@@ -51,11 +51,6 @@ button {
     font-size: 2em;
 }
 
-.Username {
-    color: white;
-    scale: 2.5;
-}
-
 button:hover {
     color: #1c7dd4;
     background: white;
@@ -67,7 +62,6 @@ button:hover {
     align-items: center;
     justify-content: space-around;
     padding: 15px 10px;
-    border-bottom: 2px solid #999;
 }
 
 table {
@@ -98,9 +92,13 @@ td {
     justify-content: center;
 }
 
+.sidebar h1 {
+    color: white;
+}
+
 .sidebar li {
     font-size: 24px;
-    padding: 10px 40px;
+    padding: 10px 10px;
     color: white;
     display: flex;
     cursor:pointer;
@@ -108,14 +106,16 @@ td {
 }
 
 .sidebar span {
-    font-size: 18px;
-    padding: 2px 10px;
+    font-size: 22px;
+    padding: 2px 18px;
     display: flex;
     align-items: center;
 }
 
 .sidebar i{
     font-size: 2em;
+    width: 45px;
+    text-align: center;
 }
 
 .sidebar li:hover {
@@ -424,6 +424,20 @@ td {
     }
 
 }
+
+@media screen and (max-height: 550px) {
+    .header .nav .account {
+        margin-top: 20px;
+    }
+    .account .img-case{
+        /*box-shadow: 2px 2px 3px #999;*/
+    }
+    .account button{
+        /*box-shadow: 2px 2px 3px #999;*/
+    }
+
+}
+
 
 @media screen and (max-width: 600px) {
     .title h1 {
